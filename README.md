@@ -134,12 +134,10 @@ The boolean detailedOutput in runner.py can be set to True to display Optional R
 Upon each resource user termination, sucessful or not, an output message containing helpful information will be printed, containing the success of the resource user, the available resources vector after returning resources, a vector containing the end state of each resource user, indexed by resource user ID, and the process completion order, which displays the resource users that completed successfully in order from left-to-right. 
 
 Example:
---------------------------------------------------
 Resource user 0 completed and released their resources.
 Available Vector: [4, 4, 2, 12]
 Process Finish Vector: ['Completed', 'Completed', 'Completed', 'Completed']
 Process Completion Order: [3, 2, 1, 0]
---------------------------------------------------
 
 ### State messages
 
@@ -148,14 +146,12 @@ Process Completion Order: [3, 2, 1, 0]
 Two of these messages will be printed, one before the threads start running and one after. This message contains all relavent state information, like the Max Vector, Allocation Vector, Available Vector, Process Finish Vector, and Process Completion Order.
 
 Example:
-**************************************************
 Final State:
 Max Vector: [[4, 4, 1, 3], [4, 4, 1, 4], [4, 4, 1, 1], [4, 4, 1, 3]]
 Allocation Vector: [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 Available Vector: [4, 4, 2, 12]
 Process Finish Vector: ['Completed', 'Completed', 'Completed', 'Completed']
 Process Completion Order: [3, 2, 1, 0]
-**************************************************
 
 ### Request Aproval Messages
 
@@ -188,9 +184,13 @@ There can be n resources, where 1 <= n. n will be used in this section to repres
 This matrix represents the currently allocated resources to each Resource User. Indexed by the Resource User ID, each element is a list of length n, with each element representing a resource. The example below shows how to read this matrix. 
 
                 A  B  C  D
+                
 process 0 has: [4, 3, 1, 3], 
+
 process 1 has: [0, 0, 0, 4], 
+
 process 2 has: [0, 0, 1, 1], 
+
 process 3 has: [0, 0, 0, 0]
 
 As an example, reading process 0's allocated resources we have: process 0 has 4 of resource A, 3 of resource B, 1 of resource C, 3 of resource D.
@@ -200,9 +200,13 @@ As an example, reading process 0's allocated resources we have: process 0 has 4 
 This matrix represents the resources each Resource User needs to have to complete. Indexed by the Resource User ID, each element is a list of length n, with each element representing a resource. The example below shows how to read this matrix. 
 
                                       A  B  C  D
+                                      
 process 0 needs to have to complete: [4, 3, 1, 3], 
+
 process 1 needs to have to complete: [0, 0, 0, 4], 
+
 process 2 needs to have to complete: [0, 0, 1, 1], 
+
 process 3 needs to have to complete: [0, 0, 0, 0]
 
 ## Available Vector
@@ -210,6 +214,7 @@ process 3 needs to have to complete: [0, 0, 0, 0]
 This vector represents the resources that the Resource Allocator has not allocated yet. The example below shows how to read this vector. 
 
                              A  B  C  D
+                             
 The Resource Allocator has: [0, 1, 0, 4]
 
 Reading this out loud we have: The Resource Allocator has 0 of resource A, 1 of resource B, 0 of resource C, 4 of resource D.
